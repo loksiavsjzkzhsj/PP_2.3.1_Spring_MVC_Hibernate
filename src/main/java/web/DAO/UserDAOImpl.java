@@ -9,13 +9,11 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Component
 public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
-    private List<User> userList;
     @Override
     public List<User> getUserList() {
         return entityManager.createQuery("from User").getResultList();
